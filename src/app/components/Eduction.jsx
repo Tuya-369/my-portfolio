@@ -2,8 +2,31 @@
 import { GraduationCap, Calendar } from "lucide-react";
 
 export default function Education({ lang }) {
-  // Хэлнээс хамаарч өгөгдөл солигдоно
   const educationData = [
+    {
+      school:
+        lang === "en"
+          ? "Secondary School No. 152"
+          : "Ерөнхий Боловсролын 152-р Сургууль",
+      degree: lang === "en" ? "High School Diploma" : "Бүрэн Дунд Боловсрол",
+      duration: "2011 - 2023",
+      description:
+        lang === "en"
+          ? "Completed general secondary education with a focus on mathematics and natural sciences."
+          : "Математик, байгалийн ухааны чиглэлээр ерөнхий боловсрол эзэмшиж, амжилттай төгссөн.",
+      color: "green",
+    },
+    {
+      school: lang === "en" ? "MUST - SICT" : "ШУТИС - МХТС",
+      degree:
+        lang === "en" ? "Internet of Things (IoT)" : "Юмсын Интернет (IoT)",
+      duration: "2023 - 2024",
+      description:
+        lang === "en"
+          ? "Studied the fundamentals of network protocols, embedded systems, and the integration of hardware with cloud-based software solutions."
+          : "Сүлжээний протокол, суулгагдсан системүүд (embedded systems) болон техник хангамжийг үүлэн технологитой холбох үндсэн арга зүйг судалсан.",
+      color: "purple",
+    },
     {
       school: lang === "en" ? "Pinecone Academy" : "Пайкон Академи",
       degree:
@@ -18,19 +41,7 @@ export default function Education({ lang }) {
           : "Full-stack хөгжүүлэлт, React, Next.js, Node.js зэрэг орчин үеийн технологиуд болон алгоритм, өгөгдлийн бүтцийн ахисан түвшний сургалт.",
       color: "blue",
     },
-    {
-      school: lang === "en" ? "MUST - SICT" : "ШУТИС - МХТС",
-      degree:
-        lang === "en" ? "Internet of Things (IoT)" : "Юмсын Интернет (IoT)",
-      duration: "2023 - 2024",
-      description:
-        lang === "en"
-          ? "Studied the fundamentals of network protocols, embedded systems, and the integration of hardware with cloud-based software solutions."
-          : "Сүлжээний протокол, суулгагдсан системүүд (embedded systems) болон техник хангамжийг үүлэн технологитой холбох үндсэн арга зүйг судалсан.",
-      color: "purple",
-    },
   ];
-
   const t = {
     en: { title: "My", highlight: "Education" },
     mn: { title: "Миний", highlight: "Боловсрол" },
