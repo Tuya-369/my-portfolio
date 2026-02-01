@@ -37,8 +37,8 @@ export default function Education({ lang }) {
           : "2025 (1 жилийн эрчимжүүлсэн)",
       description:
         lang === "en"
-          ? "Focused on Full-stack development, mastering modern technologies including React, Next.js, and Node.js along with advanced data structures and algorithms."
-          : "Full-stack хөгжүүлэлт, React, Next.js, Node.js зэрэг орчин үеийн технологиуд болон алгоритм, өгөгдлийн бүтцийн ахисан түвшний сургалт.",
+          ? "Focused on full-stack development, modern technologies, and advanced algorithms and data structures."
+          : "Full-stack хөгжүүлэлт, орчин үеийн технологиуд болон алгоритм, өгөгдлийн бүтцийн ахисан түвшний сургалт.",
       color: "blue",
     },
   ];
