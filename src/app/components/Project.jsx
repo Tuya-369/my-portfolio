@@ -9,7 +9,7 @@ export default function Project({ lang }) {
         lang === "en"
           ? "I built this to make reading a fun challenge for kids! It listens to them read for a minute, then points out exactly which words were tricky, helping little ones grow their confidence step by step."
           : "Хүүхдүүд уншиж сурахдаа битгий залхаасай гэж бодож энэ төслийг эхлүүлсэн. Ердөө 60 секундэд хүүхдийг уншуулж, аль үг дээр алдсаныг нь маш тодорхой харуулж, урам өгөх зорилготой вэбсайт юм.",
-      tech: ["TypeScript", "Tailwind CSS", "Web Speech API", "Next.js"],
+      tech: ["TypeScript", "Tailwind CSS", "Gemini AI", "Next.js"],
       link: "https://final-project-self-three.vercel.app/",
       github: "https://github.com/Merkzadok/SixtySeconds",
       image: "/project1.png",
@@ -58,7 +58,6 @@ export default function Project({ lang }) {
       id="projects"
       className="min-h-screen py-24 bg-[#030014] relative overflow-hidden"
     >
-      {/* Background Glows */}
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full -z-10" />
       <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full -z-10" />
 
@@ -79,7 +78,6 @@ export default function Project({ lang }) {
               key={index}
               className="group relative bg-[#0a0a1a] border border-white/5 rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 flex flex-col h-full"
             >
-              {/* Image Section */}
               <div className="relative h-60 w-full overflow-hidden bg-white/5">
                 <img
                   src={project.image}
@@ -93,7 +91,6 @@ export default function Project({ lang }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-transparent to-transparent opacity-60"></div>
               </div>
 
-              {/* Content Section */}
               <div className="p-8 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors uppercase">
                   {project.title}
@@ -102,7 +99,6 @@ export default function Project({ lang }) {
                   {project.description}
                 </p>
 
-                {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((techItem) => (
                     <span
@@ -114,7 +110,6 @@ export default function Project({ lang }) {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex items-center gap-3">
                   <a
                     href={project.link}

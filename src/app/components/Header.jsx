@@ -36,9 +36,10 @@ export default function Header({ lang, setLang }) {
 
   const navLinks = [
     { name: lang === "en" ? "About" : "Тухай", id: "about" },
+    { name: lang === "en" ? "Education" : "Боловсрол", id: "education" },
     { name: lang === "en" ? "Skills" : "Чадвар", id: "skills" },
     { name: lang === "en" ? "Projects" : "Төсөл", id: "projects" },
-    { name: lang === "en" ? "Education" : "Боловсрол", id: "education" },
+
     { name: lang === "en" ? "Contact" : "Холбоо", id: "contact" },
   ];
 
@@ -58,7 +59,6 @@ export default function Header({ lang, setLang }) {
             </li>
           ))}
 
-          {/* Шинэ, маш гоё Button хэсэг */}
           <li className="ml-2">
             <button
               onClick={() => setLang(lang === "en" ? "mn" : "en")}
