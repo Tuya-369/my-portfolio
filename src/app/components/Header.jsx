@@ -1,91 +1,123 @@
 "use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default function Header({ lang, setLang }) {
-  const customScrollTo = (targetY, duration) => {
-    const startY = window.scrollY;
-    const difference = targetY - startY;
-    let startTime = null;
+export default function Header({ lang = "en", setLang }) {
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-    const easeInOutQuad = (t, b, c, d) => {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+
+    const handleScroll = () => {
+      if (pathname !== "/") {
+        setActiveSection("");
+        return;
+      }
+
+      const sections = ["about", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          if (
+            scrollPosition >= element.offsetTop &&
+            scrollPosition < element.offsetTop + element.offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
-    const animation = (currentTime) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = easeInOutQuad(timeElapsed, startY, difference, duration);
-      window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
     };
-    requestAnimationFrame(animation);
-  };
+  }, [pathname]);
 
   const handleClick = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const targetY =
-        element.getBoundingClientRect().top + window.scrollY - offset;
-      customScrollTo(targetY, 1200);
+    if (pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        e.preventDefault();
+        window.scrollTo({
+          top: element.offsetTop - 80,
+          behavior: "smooth",
+        });
+        setActiveSection(id);
+      }
     }
   };
 
-  const navLinks = [
-    { name: lang === "en" ? "About" : "Тухай", id: "about" },
-    { name: lang === "en" ? "Education" : "Боловсрол", id: "education" },
-    { name: lang === "en" ? "Skills" : "Чадвар", id: "skills" },
-    { name: lang === "en" ? "Projects" : "Төсөл", id: "projects" },
+  if (!mounted)
+    return (
+      <nav className="fixed top-0 w-full h-16 bg-[#030014]/60 backdrop-blur-xl z-50" />
+    );
 
-    { name: lang === "en" ? "Contact" : "Холбоо", id: "contact" },
-  ];
+  const checkActive = (id, type) => {
+    if (type === "page") return pathname === id;
+    if (type === "section") return pathname === "/" && activeSection === id;
+    return false;
+  };
+
+  // whitespace-nowrap нэмсэнээр текстийг нэг мөрөнд барина
+  const getLinkStyle = (isActive) =>
+    `text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 whitespace-nowrap ${
+      isActive
+        ? "text-purple-400 border-b-2 border-purple-500 pb-1"
+        : "text-gray-400 hover:text-white"
+    }`;
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#030014]/60 backdrop-blur-xl border-b border-white/5">
-      <div className="container mx-auto px-4 md:px-10 py-4">
-        <ul className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 md:gap-x-10">
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                onClick={(e) => handleClick(e, link.id)}
-                className="text-gray-400 hover:text-purple-400 font-bold text-[10px] md:text-sm tracking-widest transition-all duration-300 uppercase"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-
-          <li className="ml-2">
-            <button
-              onClick={() => setLang(lang === "en" ? "mn" : "en")}
-              className="relative group px-4 py-1.5 rounded-full overflow-hidden
-                         border border-purple-500/40 bg-purple-500/10 
-                         transition-all duration-500 ease-out
-                         hover:border-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]
-                         active:scale-95 flex items-center gap-2"
+      <div className="container mx-auto px-4 md:px-10 py-5 flex justify-between items-center">
+        {/* NAVIGATION - Зүүн талд байрлах бөгөөд зайг нь тохируулсан */}
+        <ul className="flex items-center gap-x-5 md:gap-x-10 overflow-x-auto no-scrollbar">
+          <li>
+            <Link
+              href="/#about"
+              onClick={(e) => handleClick(e, "about")}
+              className={getLinkStyle(checkActive("about", "section"))}
             >
-              {/* Хулгана очиход дүүрэх эффект */}
-              <div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 
-                              translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"
-              ></div>
+              {lang === "en" ? "Professional" : "Профайл"}
+            </Link>
+          </li>
 
-              <span
-                className="relative z-10 text-[10px] md:text-xs font-black text-purple-300 
-                               group-hover:text-white transition-colors duration-300 tracking-tighter"
-              >
-                {lang === "en" ? "MN" : "EN"}
-              </span>
+          <li>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleClick(e, "contact")}
+              className={getLinkStyle(checkActive("contact", "section"))}
+            >
+              {lang === "en" ? "Contact" : "Холбоо барих"}
+            </Link>
+          </li>
 
-              {/* Жижигхэн "Active" цэг */}
-              <div className="relative w-1 h-1 rounded-full bg-purple-400 group-hover:bg-white animate-pulse"></div>
-            </button>
+          <li>
+            <Link
+              href="/personal"
+              className={getLinkStyle(checkActive("/personal", "page"))}
+            >
+              {lang === "en" ? "Personal" : "Хувийн"}
+            </Link>
           </li>
         </ul>
+
+        {/* LANG TOGGLE - Баруун талд */}
+        <div className="flex items-center pl-4">
+          <button
+            onClick={() => setLang && setLang(lang === "en" ? "mn" : "en")}
+            className="text-[10px] md:text-xs font-black text-gray-500 hover:text-purple-400 transition-all px-2 py-1 border border-white/10 rounded-md hover:border-purple-500/50"
+          >
+            {lang === "en" ? "MN" : "EN"}
+          </button>
+        </div>
       </div>
     </nav>
   );
