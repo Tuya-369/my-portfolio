@@ -11,11 +11,10 @@ export default function PersonalPage() {
 
   return (
     <main className="bg-[#030014] min-h-screen">
-      {/* Header-т хэл солих функцийг дамжуулсан */}
       <Header lang={lang} setLang={setLang} />
 
       <div className="pt-20">
-        {/* AboutMe-д Р.Чойномын үнэн мөрүүд болон танилцуулга байгаа */}
+
         <AboutMe lang={lang} />
         <HobbySection lang={lang} />
         <MyStory lang={lang} />

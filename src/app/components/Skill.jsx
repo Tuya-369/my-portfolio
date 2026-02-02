@@ -1,6 +1,4 @@
 "use client";
-
-// 1. Туслах компонентоо үндсэн компонентынхоо ГАДАА зарлана
 const MarqueeRow = ({ skills, direction = "left", speed = "30s" }) => (
   <div className="relative flex overflow-hidden py-3">
     <div
@@ -92,7 +90,6 @@ export default function Skill({ lang }) {
         </div>
 
         <div className="max-w-6xl mx-auto flex flex-col gap-2">
-          {/* Одоо энд алдаагүй ажиллана */}
           <MarqueeRow skills={row1} direction="left" speed="25s" />
           <MarqueeRow skills={row2} direction="right" speed="30s" />
           <MarqueeRow skills={row3} direction="left" speed="28s" />

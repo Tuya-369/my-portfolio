@@ -66,7 +66,6 @@ export default function Header({ lang = "en", setLang }) {
     return false;
   };
 
-  // whitespace-nowrap нэмсэнээр текстийг нэг мөрөнд барина
   const getLinkStyle = (isActive) =>
     `text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 whitespace-nowrap ${
       isActive
@@ -77,7 +76,6 @@ export default function Header({ lang = "en", setLang }) {
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#030014]/60 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-4 md:px-10 py-5 flex justify-between items-center">
-        {/* NAVIGATION - Зүүн талд байрлах бөгөөд зайг нь тохируулсан */}
         <ul className="flex items-center gap-x-5 md:gap-x-10 overflow-x-auto no-scrollbar">
           <li>
             <Link
@@ -109,7 +107,6 @@ export default function Header({ lang = "en", setLang }) {
           </li>
         </ul>
 
-        {/* LANG TOGGLE - Баруун талд */}
         <div className="flex items-center pl-4">
           <button
             onClick={() => setLang && setLang(lang === "en" ? "mn" : "en")}

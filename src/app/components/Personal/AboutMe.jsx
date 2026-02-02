@@ -7,7 +7,6 @@ export default function AboutMe({ lang }) {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Typewriter текст - Хэл бүрт зориулж өөрчиллөө
   const fullText = useMemo(
     () =>
       lang === "en"

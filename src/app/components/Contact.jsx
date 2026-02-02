@@ -10,9 +10,8 @@ import {
 } from "lucide-react";
 
 export default function Contact({ lang }) {
-  const [status, setStatus] = useState("idle"); // idle, sending, success, error
+  const [status, setStatus] = useState("idle");
 
-  // Орчуулгын текстүүд
   const t = {
     en: {
       title: "GET IN",

@@ -20,7 +20,6 @@ export default function About({ lang }) {
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Үсэг арилгах хэсэг
         setDisplayText(fullText.slice(0, displayText.length - 1));
         setSpeed(50);
 
@@ -34,8 +33,6 @@ export default function About({ lang }) {
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, lang, speed]);
-
-  // ... (бусад content болон return хэсэг хэвээрээ)
 
   const content = {
     en: {
