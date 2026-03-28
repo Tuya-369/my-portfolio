@@ -4,7 +4,7 @@ import { ExternalLink, Github } from "lucide-react";
 export default function Project({ lang }) {
   const projects = [
     {
-      title: "60 Seconds - Уншиж сурах нь хөгжилтэй",
+      title: "60 Seconds ",
       description:
         lang === "en"
           ? "I built this to make reading a fun challenge for kids! It listens to them read for a minute, then points out exactly which words were tricky, helping little ones grow their confidence step by step."

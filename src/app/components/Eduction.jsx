@@ -9,7 +9,6 @@ export default function Education({ lang }) {
           ? "Secondary School No. 152"
           : "Ерөнхий Боловсролын 152-р Сургууль",
       degree: lang === "en" ? "High School Diploma" : "Бүрэн Дунд Боловсрол",
-      duration: "2011 - 2023",
       description:
         lang === "en"
           ? "Completed general secondary education with a focus on mathematics and natural sciences."
@@ -20,7 +19,6 @@ export default function Education({ lang }) {
       school: lang === "en" ? "MUST - SICT" : "ШУТИС - МХТС",
       degree:
         lang === "en" ? "Internet of Things (IoT)" : "Юмсын Интернет (IoT)",
-      duration: "2023 - 2024",
       description:
         lang === "en"
           ? "Studied the fundamentals of network protocols, embedded systems, and the integration of hardware with cloud-based software solutions."
@@ -31,10 +29,6 @@ export default function Education({ lang }) {
       school: lang === "en" ? "Pinecone Academy" : "Пайкон Академи",
       degree:
         lang === "en" ? "Software Engineering" : "Програм Хангамжийн Инженер",
-      duration:
-        lang === "en"
-          ? "2025 (1 Year Intensive)"
-          : "2025 (1 жилийн эрчимжүүлсэн)",
       description:
         lang === "en"
           ? "Focused on full-stack development, modern technologies, and advanced algorithms and data structures."
@@ -85,10 +79,6 @@ export default function Education({ lang }) {
                     <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors uppercase">
                       {edu.school}
                     </h3>
-                    <div className="flex items-center gap-2 text-gray-400 text-sm bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
-                      <Calendar size={14} />
-                      {edu.duration}
-                    </div>
                   </div>
 
                   <h4 className="text-lg font-medium text-blue-500 mb-3 flex items-center gap-2">
