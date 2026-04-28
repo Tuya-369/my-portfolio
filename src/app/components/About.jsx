@@ -12,9 +12,8 @@ export default function About({ lang }) {
 
     const handleTyping = () => {
       if (!isDeleting) {
-        // Үсэг нэмэх хэсэг
         setDisplayText(fullText.slice(0, displayText.length + 1));
-        setSpeed(100); // Бичих хурд
+        setSpeed(100);
 
         if (displayText === fullText) {
           setTimeout(() => setIsDeleting(true), 2000);
@@ -93,7 +92,6 @@ export default function About({ lang }) {
           </div>
         </div>
 
-        {/* Зураг хэсэг */}
         <div className="order-1 md:order-2 flex justify-center relative">
           <div className="absolute inset-0 bg-purple-600/10 blur-[120px] rounded-full"></div>
           <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] rounded-full border border-white/5 p-4">

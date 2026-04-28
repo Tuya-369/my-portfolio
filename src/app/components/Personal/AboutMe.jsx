@@ -52,7 +52,7 @@ export default function AboutMe({ lang }) {
       id="AboutMe"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030014] py-20 px-6"
     >
-      {/* --- BACKGROUND --- */}
+
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-900/20 blur-[120px] rounded-full" />
         {stars.map((star) => (
@@ -72,7 +72,7 @@ export default function AboutMe({ lang }) {
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-20 grid md:grid-cols-2 gap-12 items-center">
-        {/* LEFT: TEXT */}
+
         <div className="order-2 md:order-1 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -90,7 +90,7 @@ export default function AboutMe({ lang }) {
               />
             </h1>
 
-            {/* ШИНЭЧИЛСЭН ДУЛААХАН ТЕКСТ */}
+
             <p className="mt-6 text-gray-300 font-medium tracking-wide text-sm md:text-base italic opacity-90">
               {lang === "en"
                 ? "Born in 2004 as my father's middle daughter..."
@@ -100,7 +100,7 @@ export default function AboutMe({ lang }) {
           </motion.div>
         </div>
 
-        {/* RIGHT: PORTAL & MASKED IMAGE */}
+
         <div className="order-1 md:order-2 flex justify-center items-center relative py-10">
           <motion.div
             animate={{ rotate: 360 }}
