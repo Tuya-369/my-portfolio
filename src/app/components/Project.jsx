@@ -76,7 +76,7 @@ export default function Project({ lang }) {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative bg-[#0a0a1a] border border-white/5 rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 flex flex-col h-full"
+              className="group relative bg-[#0a0a1a] border border-white/5 rounded-2rem overflow-hidden hover:border-blue-500/30 transition-all duration-500 flex flex-col h-full"
             >
               <div className="relative h-60 w-full overflow-hidden bg-white/5">
                 <img

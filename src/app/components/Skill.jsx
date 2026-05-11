@@ -77,13 +77,13 @@ export default function Skill({ lang }) {
       className="py-24 bg-[#030014] relative overflow-hidden"
     >
       {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-800px h-500px bg-blue-600/5 blur-[120px] rounded-full -z-10" />
 
       <div className="container mx-auto relative z-10 px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 italic uppercase tracking-tighter">
             {lang === "en" ? "TECHNICAL" : "ТЕХНИК"}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-purple-500">
               {lang === "en" ? "SKILLS" : "УР ЧАДВАР"}
             </span>
           </h2>

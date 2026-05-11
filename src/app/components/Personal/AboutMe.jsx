@@ -52,9 +52,8 @@ export default function AboutMe({ lang }) {
       id="AboutMe"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030014] py-20 px-6"
     >
-
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-900/20 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-300px md:w-600px h-300px md:h-600px bg-purple-900/20 blur-[120px] rounded-full" />
         {stars.map((star) => (
           <motion.div
             key={star.id}
@@ -72,15 +71,14 @@ export default function AboutMe({ lang }) {
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-20 grid md:grid-cols-2 gap-12 items-center">
-
         <div className="order-2 md:order-1 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight min-h-[120px] md:min-h-[160px] whitespace-pre-line">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight min-h-120px md:min-h-160px whitespace-pre-line">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-400">
                 {displayText}
               </span>
               <motion.span
@@ -90,31 +88,29 @@ export default function AboutMe({ lang }) {
               />
             </h1>
 
-
             <p className="mt-6 text-gray-300 font-medium tracking-wide text-sm md:text-base italic opacity-90">
               {lang === "en"
                 ? "Born in 2004 as my father's middle daughter..."
                 : "2004 онд аавынхаа дунд охин болон мэндэлсэн..."}
             </p>
-            <div className="mt-2 h-[2px] w-20 bg-gradient-to-r from-purple-500 to-transparent md:mx-0 mx-auto" />
+            <div className="mt-2 h-2px w-20 bg-linear-to-r from-purple-500 to-transparent md:mx-0 mx-auto" />
           </motion.div>
         </div>
-
 
         <div className="order-1 md:order-2 flex justify-center items-center relative py-10">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute w-[300px] h-[300px] md:w-[480px] md:h-[480px] border-2 border-dashed border-purple-500/30 rounded-full"
+            className="absolute w-300px h-300px md:w-480px md:h-480px border-2 border-dashed border-purple-500/30 rounded-full"
           />
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute w-[260px] h-[260px] md:w-[420px] md:h-[420px] border border-blue-500/20 rounded-full shadow-[0_0_60px_rgba(168,85,247,0.15)]"
+            className="absolute w-260px h-260px md:w-420px md:h-420px border border-blue-500/20 rounded-full shadow-[0_0_60px_rgba(168,85,247,0.15)]"
           />
 
           <div
-            className="relative z-10 w-[280px] h-[280px] md:w-[450px] md:h-[450px] rounded-full overflow-hidden flex justify-center items-end"
+            className="relative z-10 w-280px h-280px md:w-450px md:h-450px rounded-full overflow-hidden flex justify-center items-end"
             style={{
               maskImage:
                 "radial-gradient(circle at center, black 40%, transparent 85%)",
@@ -131,7 +127,7 @@ export default function AboutMe({ lang }) {
               <img
                 src="/Tuya.png"
                 alt="Okojo"
-                className="w-[85%] md:w-[90%] object-contain drop-shadow-[0_0_20px_rgba(168,85,247,0.3)] translate-y-4"
+                className="w-85% md:w-90% object-contain drop-shadow-[0_0_20px_rgba(168,85,247,0.3)] translate-y-4"
               />
             </motion.div>
           </div>
